@@ -42,3 +42,6 @@ A breakdown for those new to docker:
 
 # Warning
 S2E is quite large. Right now, it's looking to be about 14GB without virtual machines. You have been warned.
+
+# Stages
+You'll notice "stage1", etc here. This is due to the automated docker build process timing out. Do not worry about these.
