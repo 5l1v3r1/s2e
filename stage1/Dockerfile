@@ -6,7 +6,7 @@ FROM ubuntu:16.04
 
 RUN dpkg --add-architecture i386
 RUN apt-get update && apt-get -y upgrade
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y sudo virtualenvwrapper git gcc python-dev software-properties-common lsb-release vim keyboard-configuration console-setup docker
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y sudo virtualenvwrapper git gcc python-dev software-properties-common lsb-release vim keyboard-configuration console-setup docker libvirt-bin qemu-kvm
 
 RUN useradd -m s2e
 
