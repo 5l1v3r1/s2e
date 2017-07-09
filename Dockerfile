@@ -8,7 +8,7 @@ RUN dpkg --add-architecture i386
 RUN apt-get update && apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y sudo virtualenvwrapper git gcc python-dev software-properties-common lsb-release vim keyboard-configuration console-setup docker
 
-RUN useradd s2e
+RUN useradd -m s2e
 
 RUN echo 's2e ALL=(ALL) NOPASSWD:ALL' | sudo EDITOR='tee -a' visudo
 
@@ -16,7 +16,6 @@ USER s2e
 WORKDIR /home/s2e
 
 # Initial s2e setup
-RUN ls -la *
 RUN git clone https://github.com/s2e/s2e-env.git
 RUN mkdir .virtualenvs
 RUN virtualenv --python=$(which python2) .virtualenvs/s2e
