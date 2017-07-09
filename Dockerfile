@@ -16,6 +16,7 @@ USER s2e
 WORKDIR /home/s2e
 
 # Initial s2e setup
+RUN ls -la *
 RUN git clone https://github.com/s2e/s2e-env.git
 RUN mkdir .virtualenvs
 RUN virtualenv --python=$(which python2) .virtualenvs/s2e
