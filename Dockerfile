@@ -33,6 +33,9 @@ RUN sudo usermod -a -G libvirtd s2e
 RUN echo "source ~/.virtualenvs/s2e/bin/activate" >> ~/.bashrc
 # Sadly, can't find priviledged mode for docker build. This has to be done run-time.
 RUN echo "sudo /etc/init.d/docker start" >> ~/.bashrc
+RUN echo "cd s2e" > ~/.bashrc
+RUN echo "echo -e 'Be sure to run this docker image like this:\n\tsudo docker run -it --rm --device /dev/kvm:/dev/kvm --privileged s2e'" >> ~/.bashrc
+
 
 
 CMD /bin/bash 
