@@ -1,7 +1,7 @@
 # Overview
 The goal for the `AvoidAddress` plugin is to simply accept a list of addresses that you wish to avoid (likely discovered through static or other methods). It will then kill any state that hits this address.
 
-# Configuratio
+# Configuration
 
 Edit the `s2e-config.lua` file to add the following:
 
