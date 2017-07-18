@@ -12,6 +12,7 @@ pluginsConfig.AvoidAddress = {
         0x00400636,
         <address 2 to avoid>
     },
+    relative = false,
 }
 
 -- It might be added earlier in the file already. If so, just update it to have the name of your file.
@@ -23,3 +24,11 @@ pluginsConfig.ProcessExecutionDetector = {
 }
 ```
 
+__addressList__ == This is a list of addresses to "avoid". You can actually use this for the case you want to find as well, since by default S2E will dump out example constraints.
+
+__relative__ == bool value if the addresses in the list are relative. Use this when you're breaking on addresses in a position independent executable (PIE) binary, since you will not know ahead of time where it will be loaded.
+
+# Issues
+It appears right now that there's a bug in S2E's handling of amd64 PIE binaries when it comes to the `ProcessExecutionDetector` plugin that this plugin utilizes. For now, amd64 PIE ELF binaries will likely not address avoid correctly. https://github.com/S2E/libs2eplugins/issues/10
+
+This is untested on PE and MACH-O

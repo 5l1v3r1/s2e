@@ -4,7 +4,9 @@
 #include <s2e/CorePlugin.h>
 #include <s2e/Plugin.h>
 #include <s2e/Plugins/OSMonitors/Support/ProcessExecutionDetector.h>
+#include <s2e/Plugins/OSMonitors/Support/ModuleExecutionDetector.h>
 #include <s2e/Utils.h>
+#include <s2e/Plugins/OSMonitors/OSMonitor.h>
 
 namespace s2e {
 namespace plugins {
@@ -30,6 +32,10 @@ private:
     IntegerSet m_trackedAddresses;
 
     ProcessExecutionDetector *m_procDetector;
+    bool m_relative;
+    OSMonitor *m_monitor;
+    //void onModuleLoad(S2EExecutionState *state, const ModuleDescriptor &module);
+    ModuleExecutionDetector *m_detector;
 
 };
 
