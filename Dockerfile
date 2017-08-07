@@ -46,7 +46,7 @@ RUN echo "source ~/.virtualenvs/s2e/bin/activate" >> ~/.bashrc
 RUN echo "sudo /etc/init.d/docker start" >> ~/.bashrc
 RUN echo "cd s2e" >> ~/.bashrc
 RUN echo "function s2e_rebuild { pushd .; cd /home/s2e/s2e/build/s2e; rm stamps/libs2e-*; CMAKE_PREFIX_PATH=llvm-release/cmake/modules/CMakeFiles:/home/s2e/s2e/source/s2e/libs2eplugins S2EPREFIX=/home/s2e/s2e/install make -f ../../source/s2e/Makefile install; find -name libs2eplugins -exec cp -r /home/s2e/s2e/source/s2e/libs2eplugins/* {}/.  \;; CMAKE_PREFIX_PATH=llvm-release/cmake/modules/CMakeFiles:/home/s2e/s2e/source/s2e/libs2eplugins S2EPREFIX=/home/s2e/s2e/install make -f ../../source/s2e/Makefile install; popd;}" >> ~/.bashrc
-RUN echo "echo -e 'Be sure to run this docker image like this:\n\tsudo docker run -it --rm --device /dev/kvm:/dev/kvm --privileged s2e'" >> ~/.bashrc
+RUN echo "echo -e 'Be sure to run this docker image like this:\n\tsudo docker run -it --device /dev/kvm:/dev/kvm --privileged bannsec/s2e'" >> ~/.bashrc
 # Make KVM accessable to S2E
 RUN echo "sudo chmod 666 /dev/kvm" >> ~/.bashrc
 
